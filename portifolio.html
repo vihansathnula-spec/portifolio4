@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vihan Sathnula | Web Developer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0f19;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00e5ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00e5ff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at 50% 40%, #12314a 0%, #0b0f19 45%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #00e5ff;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #bbb;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            margin: 5px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #00e5ff;
+            color: #001015;
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px #00e5ff;
+        }
+
+        .secondary {
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+        }
+
+        .secondary:hover {
+            background: #00e5ff;
+            color: #001015;
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+        .section-title span {
+            color: #00e5ff;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-box {
+            background: #111827;
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid #1f2937;
+        }
+
+        .about-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #00e5ff;
+        }
+
+        .about-box p {
+            color: #bbb;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #111827;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid #1f2937;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+        }
+
+        .skill h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            color: #aaa;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #111827;
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #1f2937;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+        }
+
+        .project h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .project a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .project a:hover {
+            color: #00e5ff;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: #111827;
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            background: #1f2937;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-box textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-box button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            background: #00e5ff;
+            color: #001015;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-box button:hover {
+            box-shadow: 0 0 20px #00e5ff;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #070a11;
+            color: #888;
+        }
+
+        footer span {
+            color: #00e5ff;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <div class="logo">Vihan.</div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Hello, I'm <span>Vihan Sathnula</span></h1>
+
+            <h2>Web Developer & Designer</h2>
+
+            <p>
+                I create modern, responsive and beautiful websites
+                using HTML, CSS and JavaScript.
+            </p>
+
+            <a href="#projects" class="btn primary">
+                View My Work
+            </a>
+
+            <a href="#contact" class="btn secondary">
+                Contact Me
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About <span>Me</span></h2>
+        </div>
+
+        <div class="about">
+
+            <div class="about-box">
+                <h3>Who Am I?</h3>
+
+                <p>
+                    I'm Vihan Sathnula, a passionate web developer
+                    who enjoys creating websites and learning new
+                    technologies.
+                </p>
+            </div>
+
+            <div class="about-box">
+                <h3>My Goal</h3>
+
+                <p>
+                    My goal is to build creative, fast and user-friendly
+                    websites that look great on computers, tablets
+                    and mobile phones.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>HTML</h3>
+                <p>Website Structure</p>
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <p>Modern Web Design</p>
+            </div>
+
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <p>Interactive Websites</p>
+            </div>
+
+            <div class="skill">
+                <h3>UI/UX</h3>
+                <p>User Interface Design</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>My <span>Projects</span></h2>
+        </div>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    A modern personal portfolio website
+                    created using HTML and CSS.
+                </p>
+
+                <a href="#">View Project →</a>
+            </div>
+
+
+            <div class="project">
+                <h3>Travel Website</h3>
+
+                <p>
+                    A beautiful travel website designed
+                    for exploring Sri Lanka.
+                </p>
+
+                <a href="#">View Project →</a>
+            </div>
+
+
+            <div class="project">
+                <h3>AI Website</h3>
+
+                <p>
+                    A modern AI-themed website with
+                    a clean and responsive interface.
+                </p>
+
+                <a href="#">View Project →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Contact <span>Me</span></h2>
+        </div>
+
+        <div class="contact-box">
+
+            <form onsubmit="sendMessage(event)">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 <span>Vihan Sathnula</span>.
+            All Rights Reserved.
+        </p>
+    </footer>
+
+
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            alert("Thank you! Your message has been received.");
+
+        }
+
+    </script>
+
+</body>
+</html>
